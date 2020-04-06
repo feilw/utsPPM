@@ -14,54 +14,68 @@
 </head>
 
 <body>
-	<div data-role=content>
-		<form>
-			<table>
-				<tr>
-					<td>Jumlah pinjaman</td>
-					<td> <input type="text" name="pinjaman" id="pin"></td>
-				</tr>	
-		
-				<tr>
-					<td>Waktu pinjaman</td>
-					<td> <input type="text" name="cicilan" id="ci"></td>
-				</tr>
-		</table>
-		<button onclick="hitung()">Hitung</button>
-				
-
-<!-- Halaman input pinjaman, informasi yang perlu dimasukkan adalah jumlah pinjaman dan 
-waktu pinjaman. Setelah diinputkan akan muncul total pengembalian (Pinjaman + Bunga 
-keseluruhan) 
-Contoh : 	Pinjaman  : 1.000.000, waktu pinjam : 6 Cicilan 
-  			Total Pengembalian : 1.000.000 + (1.000.000 * 2% * 6) = 1.120.000-->
-		<div id="total">
-			Total pengembalian: 
+	<div data-role="page">
+		<div data-role="header">
+			
 		</div>
-		<script>
+		<div data-role="content">
+			<div data-role="navbar"></div>
+			<form>
+				<table>
+					<tr>
+						<td>Jumlah pinjaman</td>
+						<td> <input type="text" name="pinjaman" id="pin"></td>
+					</tr>	
+			
+					<tr>
+						<td>Waktu pinjaman</td>
+						<td> <input type="text" name="cicilan" id="ci"></td>
+					</tr>
+			</table>
+			<button onclick="hitung()">Hitung</button>
+					
 
-			function hitung(){
-				var pin = document.getElementById("pin").value;
-				var ci = document.getElementById("ci").value;
-				
-				if (ci >= 1 && ci <= 6)
-					{
-						var total = pin + (( pin * (2/100)) * ci);
-					}
-				else if (ci >= 7 && ci <= 12)
-					{
-						var total = pin + (( pin * (1.5/100)) * ci);
-					}
-				else if (ci >= 12)
-					{
-						var total = pin + (( pin * (1/100)) * ci);
-					}
+	<!-- Halaman input pinjaman, informasi yang perlu dimasukkan adalah jumlah pinjaman dan 
+	waktu pinjaman. Setelah diinputkan akan muncul total pengembalian (Pinjaman + Bunga 
+	keseluruhan) 
+	Contoh : 	Pinjaman  : 1.000.000, waktu pinjam : 6 Cicilan 
+	  			Total Pengembalian : 1.000.000 + (1.000.000 * 2% * 6) = 1.120.000-->
+			<div id="total">
+				Total pengembalian: 
+			</div>
+			<script>
 
-				document.getElementById("total").innerHTML = total;
-			};
+				function hitung(){
+					var pin = document.getElementById("pin").value;
+					var ci = document.getElementById("ci").value;
+					
+					if (ci >= 1 && ci <= 6)
+						{
+							var total = pin + (( pin * (2/100)) * ci);
+						}
+					else if (ci >= 7 && ci <= 12)
+						{
+							var total = pin + (( pin * (1.5/100)) * ci);
+						}
+					else if (ci >= 12)
+						{
+							var total = pin + (( pin * (1/100)) * ci);
+						}
+
+					document.getElementById("total").innerHTML = total;
+				};
+			
+			</script>
+			</form>
+		</div>
 		
-		</script>
-		</form>
+		<div data-role="listview">
+			
+		</div>
+		<div data-role=footer>
+		</div>	
+		
+	</div>
 	</div>
 </body>
 </html>
